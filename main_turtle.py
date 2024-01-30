@@ -37,3 +37,5 @@ turtle.color("red")
 for i in range(30):
   turtle.forward(size)
   turtle.right(angle1)
+
+
