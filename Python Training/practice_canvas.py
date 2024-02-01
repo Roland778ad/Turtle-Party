@@ -14,16 +14,16 @@
 #         print("This is a prime number.")
 
 # IF, ELIF, ELSE
-# for i in range(5):
-#     print(i)
-#     if i > 2 :
-#         print("Bigger than 2")
-#     elif i == 2 :
-#         print("Equal to 2")
-#     else:
-#         print("Smaller than 2")
-# print()
-# print("All done")
+# while True :
+#     word = input('word: ')
+#     if word > 'banana' :
+#         print(word,"comes after banana")
+#     elif word < 'banana' :
+#         print(word, "comes before banana")
+#     else :
+#         print("Your word is bananas...")
+#         break
+# print('Done')
 
 # TRY, EXCEPT
 # temp = input("what is the current temperature in Fahrenheit? ")
@@ -54,17 +54,20 @@
 # print("The highest value object is", largest_so_far)
 
 # COUNT, SUM, AVERAGE
-print("To sum it all up...")
-input1 = int(input("Give me a number"))
-count = 0
-sum = 0
-#print("Before:", count, sum)
-for num in range(input1+1):
-    count = count + 1
-    sum = sum + num
-    #print("#", count, "Sum", sum, "Number", num)
-avg = str(sum / count)
-sum = str(sum)
-print("All together there were", count, "numbers.")
-print("The sum of all the numbers is", sum + ".")
-print("The average of all the numbers is", avg + ".")
+# print("To sum it all up...")
+# input1 = int(input("Give me a number"))
+# count = 0
+# sum = 0
+# #print("Before:", count, sum)
+# for num in range(input1+1):
+#     count = count + 1
+#     sum = sum + num
+#     #print("#", count, "Sum", sum, "Number", num)
+# avg = str(sum / count)
+# sum = str(sum)
+# print("All together there were", count, "numbers.")
+# print("The sum of all the numbers is", sum + ".")
+# print("The average of all the numbers is", avg + ".")
+
+
+
