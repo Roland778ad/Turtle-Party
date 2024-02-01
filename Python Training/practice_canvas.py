@@ -69,5 +69,10 @@
 # print("The sum of all the numbers is", sum + ".")
 # print("The average of all the numbers is", avg + ".")
 
-
-
+# SLICING STRINGS
+word = 'bananaxblimeynana'
+i = word.find('x')
+i2 = word.find("na", i+1)
+print('x is in',i, 'position')
+print('the next ''na'' after ''x'' is in', i2, 'position')
+print('the text between ''x'' and ''na'' is:', word[i+1:i2])
