@@ -54,13 +54,17 @@
 # print("The highest value object is", largest_so_far)
 
 # COUNT, SUM, AVERAGE
-# count = 0
-# sum = 0
-# print("Before:", count, sum)
-# for num in range(1, 15):
-#     count = count + 1
-#     sum = sum + num
-#     print("#", count, "Sum", sum, "Number", num)
-# print("All together there were", count, "numbers.")
-# print("The sum of all the numbers is", sum, ".")
-# print("The average of all the numbers is", sum / count,".")
+print("To sum it all up...")
+input1 = int(input("Give me a number"))
+count = 0
+sum = 0
+#print("Before:", count, sum)
+for num in range(input1+1):
+    count = count + 1
+    sum = sum + num
+    #print("#", count, "Sum", sum, "Number", num)
+avg = str(sum / count)
+sum = str(sum)
+print("All together there were", count, "numbers.")
+print("The sum of all the numbers is", sum + ".")
+print("The average of all the numbers is", avg + ".")
