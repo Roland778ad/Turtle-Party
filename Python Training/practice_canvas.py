@@ -132,24 +132,127 @@
 #     print('Happy Birthday,', friends[1] + '!')
 
 
-listnum = [1, 56, 98, 0, 33, 687, 1598]
-print('Numbers so far:', listnum)
-while True :
-    inp = input('Add any numbers to this list (when finished, type "done"): ')
-    if inp == 'done' :
-        break
-    splitinp = inp.split(',')
-    for numb in splitinp :
-        listnum.append(int(numb))
-print(listnum)
-listnum.sort()
-print('All numbers in order:', listnum)
-print('The lowest number on your list is', min(listnum))
-print('The highest number on your list is', max(listnum))
-print('You have entered', len(listnum), 'number(s).')
-sumnum = str(sum(listnum))
-print('The sum of all numbers is', sumnum + '.')
-print('The average of all numbers is:', sum(listnum) / len (listnum))
-print('DONE')
+# listnum = [1, 56, 98, 0, 33, 687, 1598]
+# print('Numbers so far:', listnum)
+# while True :
+#     inp = input('Add any numbers to this list (when finished, type "done"): ')
+#     if inp == 'done' :
+#         break
+#     splitinp = inp.split(',')
+#     for numb in splitinp :
+#         listnum.append(int(numb))
+# print(listnum)
+# listnum.sort()
+# print('All numbers in order:', listnum)
+# print('The lowest number on your list is', min(listnum))
+# print('The highest number on your list is', max(listnum))
+# print('You have entered', len(listnum), 'number(s).')
+# sumnum = str(sum(listnum))
+# print('The sum of all numbers is', sumnum + '.')
+# print('The average of all numbers is:', sum(listnum) / len (listnum))
+# print('DONE')
 
+#CHAPTER 9 DICTIONARIES
+# counts = dict()
+# names = ['chev', 'chew', 'zgian', 'chew', 'chev', 'chew']
+# for name in names :
+#     if name not in counts :
+#         counts[name] = 1
+#     else :
+#         counts[name] = counts[name] + 1
+# print(counts)
+#print(counts['zgian'])
+#
+# # counts = dict()
+# # names = ['chev', 'chew', 'zgian', 'chew', 'chev', 'chew']
+# names.append('Roland')
+# for name in names :
+#     counts[name] = counts.get(name, 0) + 1
+# print(counts)
+
+# counts = dict()
+# print('Enter a line of text.')
+# line = input('..')
+# words = line.split()
+# print(words)
+# print(len(words))
+# for word in words :
+#     counts[word] = counts.get(word, 0) + 1
+# print(counts)
+
+# name = input('Enter a text file:')
+# handle = open(name)
+#
+# counts = dict()
+# for lines in handle :
+#     words = lines.split()
+#     for word in words :
+#         counts[word] = counts.get(word, 0) + 1
+#
+# bigword = None
+# bigcount = None
+# for word, count in counts.items() :
+#     if bigword is None or bigcount < count :
+#         bigword = word
+#         bigcount = count
+#
+# print(bigword, bigcount)
+
+# CHAPTER 10 TUPLES
+# (k, v) = (4, 7)
+# print(k)
+# dictionary = {'c':99}
+# dictionary['a'] = 2
+# dictionary['b'] = 67
+# print(dictionary)
+# print(dictionary['a'])
+# ((x, y, z)) = dictionary.items()
+# tuple = (x,y,z)
+# print(tuple[1])
+# print()
+#
+# lst = list()
+# for k, i in dictionary.items() :
+#     print(k, i)
+#     lstitem = (i, k)
+#     lst.append(lstitem)
+# lst = sorted(lst, reverse=True)
+# print(lst)
+# print()
+#
+# print(sorted ( [ ( i, k) for k, i in dictionary.items()], reverse=True))
+
+# CHAPTER 11 REGULAR EXPRESSIONS
+hand = open('sample_text.txt')
+# for lines in hand :
+#     if '@' in lines :
+#         words = lines.split()
+#         for email in words :
+#             if '@' in email :
+#                 print(email)
+
+print ()
+import re
+
+print()
+hand = open('sample_text.txt')
+
+# for line in hand :
+#     line = line.rstrip()
+#     if re.search('^From:', line) :
+#         print(line)
+
+# for lines in hand :
+#     if lines.startswith("From") :
+#         line = lines.rstrip()
+#         print(re.findall('^From (\S+@\S+)', line))
+emails = list()
+for lines in hand :
+    line = lines.strip()
+    y = re.findall('^From (.*@[^ ]*)', line)
+
+    if len(y) != 1 :continue
+    emails.append(y)
+print(len(emails))
+print(emails)
 
