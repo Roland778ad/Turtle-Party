@@ -296,4 +296,3 @@ hand = open('sample_text.txt')
 #        hrefcln = re.findall('"(\\S*)"', href)
 #        print(hrefcln)
 
-#CHAPTER 13
