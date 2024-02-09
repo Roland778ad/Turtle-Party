@@ -2,6 +2,7 @@
 #CHAPTER 13 XML JSON
 #By Roland Udvari 2024-02-07
 
+# ============JSON API DATA READ===========
 import json
 import urllib.request, urllib.parse, urllib.error
 import ssl
@@ -26,6 +27,8 @@ import ssl
 #     print(item['name'], item['id'], item['x'])
 # print(info[1]['name'])
 
+# ============XML API DATA READ================
+
 import xml.etree.ElementTree as ET
 # data = '''<person><name>Chuck</name><phone type="intl">+1 734 303 4456</phone><email hide="yes"/></person>'''
 #
@@ -34,50 +37,86 @@ import xml.etree.ElementTree as ET
 # print('Name', tree.find('name').text)
 # print('Attribute:', tree.find('phone').get('type'))
 
-api_key = False
+# ===========GOOGLE MAPS API==========
+
+# api_key = False
 # If you have a Google Places API key, enter it here
 # api_key = 'AIzaSy___IDByT70'
 # https://developers.google.com/maps/documentation/geocoding/intro
 
-if api_key is False:
-    api_key = 42
-    serviceurl = 'http://py4e-data.dr-chuck.net/json?'
-else :
-    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+# if api_key is False:
+#     api_key = 42
+#     serviceurl = 'http://py4e-data.dr-chuck.net/json?'
+# else :
+#     serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+#
+# # Ignore SSL certificate errors
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+#
+# while True :
+#     address = input('Enter location: ')
+#     if len(address) < 1 : break
+#
+#     parms = dict()
+#     parms['address'] = address
+#     if api_key is not False: parms['key'] = api_key
+#     url = serviceurl + urllib.parse.urlencode(parms)
+#
+#     print('Retreiving', url)
+#     uh = urllib.request.urlopen(url)
+#     data = uh.read().decode()
+#     print('Retrived', len(data), 'characters')
+#
+#     try :
+#         js = json.loads(data)
+#     except :
+#         js = None
+#
+#     if not js or 'status' not in js or js['status'] != 'OK' :
+#         print('==== Failure to Retreive ====')
+#         print(data)
+#         continue
+#
+#     print(json.dumps(js, indent=4))
+#
+#     lat = js['results'][0]['geometry']['location']['lat']
+#     lng = js['results'][0]['geometry']['location']['lng']
+#     print('lat', lat, 'lng', lng)
+#     location = js['results'][0]['formatted_address']
+#     print(location)
 
-# Ignore SSL certificate errors
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
+# =============CLASS, OBJECT, METHOD, ATTRIBUTE============
 
-while True :
-    address = input('Enter location: ')
-    if len(address) < 1 : break
+class PartyAnimal:
+    attr1 = 0
+    attr_name = ''
+    def __init__(self, z):
+        self.attr_name = z
+        print('Object', self.attr_name, 'Constructed')
+    def method1(self):
+        self.attr1 = self.attr1 + 1
+        int(self.attr1)
+        print(self.attr_name, 'party count', self.attr1)
+    def __del__(self):
+        print('Object', self.attr_name, 'Closed')
 
-    parms = dict()
-    parms['address'] = address
-    if api_key is not False: parms['key'] = api_key
-    url = serviceurl + urllib.parse.urlencode(parms)
+class FootballFan(PartyAnimal):
+    attr_points = 0
+    def method2(self):
+        self.attr_points = self.attr_points + 7
+        #self.method1()
+        print(self.attr_name, 'points', self.attr_points)
 
-    print('Retreiving', url)
-    uh = urllib.request.urlopen(url)
-    data = uh.read().decode()
-    print('Retrived', len(data), 'characters')
 
-    try :
-        js = json.loads(data)
-    except :
-        js = None
+s = PartyAnimal('Sally')
+j = FootballFan('Jim')
+s.method1()
+j.method2()
 
-    if not js or 'status' not in js or js['status'] != 'OK' :
-        print('==== Failure to Retreive ====')
-        print(data)
-        continue
-
-    print(json.dumps(js, indent=4))
-
-    lat = js['results'][0]['geometry']['location']['lat']
-    lng = js['results'][0]['geometry']['location']['lng']
-    print('lat', lat, 'lng', lng)
-    location = js['results'][0]['formatted_address']
-    print(location)
+s.method1()
+FootballFan('Roland').method1()
+FootballFan('Roland').method2()
+j.method2()
+j.method1

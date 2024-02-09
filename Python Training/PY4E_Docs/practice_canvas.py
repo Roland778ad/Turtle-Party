@@ -258,6 +258,7 @@ hand = open('sample_text.txt')
 
 # CHAPTER 10 NETWORK
 
+#==============SOCKET LIBRARY===============
 # import socket
 #
 # mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -272,10 +273,16 @@ hand = open('sample_text.txt')
 #     print(data.decode(),end='')
 # mysock.close()
 
+#==============URLIB LIBRARY==============
+
 # import urllib.request, urllib.parse, urllib.error
 # fhand = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
+# header = fhand.getheaders()
+# print(header)
 # for line in fhand :
-#  print(line.decode().strip())
+#     print(line.decode().strip())
+
+#==========BEAUTIFULSOUP==============
 
 # import urllib.request, urllib.parse, urllib.error
 # from bs4 import BeautifulSoup
