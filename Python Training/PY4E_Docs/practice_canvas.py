@@ -2,7 +2,7 @@
 # By Roland Udvari
 # Created 1-30-2024
 
-# PRIME CHECKER
+# =====================PRIME CHECKER==========================
 # print("Let's see if I can figure out if a number is a prime number")
 # prm = input("What's your number: ")
 # prm1 = int(prm)/2
@@ -13,7 +13,7 @@
 #     if int(prm) % i > 0:
 #         print("This is a prime number.")
 
-# IF, ELIF, ELSE
+# ======================IF, ELIF, ELSE===================
 # while True :
 #     word = input('word: ')
 #     if word > 'banana' :
@@ -25,7 +25,7 @@
 #         break
 # print('Done')
 
-# TRY, EXCEPT
+# ======================TRY, EXCEPT=====================
 # temp = input("what is the current temperature in Fahrenheit? ")
 # try :
 #     fahr = float(temp)
@@ -34,7 +34,7 @@
 # except :
 #     print("Use # digits only")
 
-# BREAK, CONTINUE
+# =================BREAK, CONTINUE================
 # while True :
 #     line = input(">")
 #     if line[0] == '#' :
@@ -44,7 +44,7 @@
 #     print(line)
 # print('Done!')
 
-# LARGEST
+# ======================LARGEST====================
 # largest_so_far = "A"
 # print("before", largest_so_far)
 # for the_num in ("Hello-world"):
@@ -53,7 +53,7 @@
 #     print(largest_so_far, the_num)
 # print("The highest value object is", largest_so_far)
 
-# COUNT, SUM, AVERAGE
+# ===============COUNT, SUM, AVERAGE==================
 # print("To sum it all up...")
 # input1 = int(input("Give me a number"))
 # count = 0
@@ -69,7 +69,7 @@
 # print("The sum of all the numbers is", sum + ".")
 # print("The average of all the numbers is", avg + ".")
 
-# ch6 SLICE STRIP STRINGS
+# =====================ch6 SLICE STRIP STRINGS=========================
 # src = 'X-DSPAM-confidence: 0.0475 '
 # i = src.find(':')
 # print('position of :', i)
@@ -83,7 +83,7 @@
 # piece = float(src[src.find(':')+1:].strip())
 # print('single line code with float test: ', piece+42)
 
-# ch7 EXTERNAL FILE OPERATIONS
+# =================ch7 EXTERNAL FILE OPERATIONS==================
 # while True :
 #     file = input('Enter file, ot type '"Quit"' to quit: ')
 #     if file != "Quit" :
@@ -118,7 +118,8 @@
 #     print(count, fromline)
 # print('done')
 
-# CH8 LISTS
+# ================CH8 LISTS======================
+
 # friends = ["Joe", "Glenn", "Sally"]
 # print(friends)
 # print(len(friends))
@@ -198,7 +199,7 @@
 #
 # print(bigword, bigcount)
 
-# CHAPTER 10 TUPLES
+# ================CHAPTER 10 TUPLES=============
 # (k, v) = (4, 7)
 # print(k)
 # dictionary = {'c':99}
@@ -222,7 +223,7 @@
 #
 # print(sorted ( [ ( i, k) for k, i in dictionary.items()], reverse=True))
 
-# CHAPTER 11 REGULAR EXPRESSIONS
+# ================CHAPTER 11 REGULAR EXPRESSIONS================
 hand = open('sample_text.txt')
 # for lines in hand :
 #     if '@' in lines :
@@ -256,7 +257,7 @@ hand = open('sample_text.txt')
 # print(len(emails))
 # print(emails)
 
-# CHAPTER 10 NETWORK
+# ==================CHAPTER 12 NETWORK============
 
 #==============SOCKET LIBRARY===============
 # import socket
