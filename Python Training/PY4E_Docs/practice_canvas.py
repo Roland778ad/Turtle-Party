@@ -153,7 +153,7 @@
 # print('The average of all numbers is:', sum(listnum) / len (listnum))
 # print('DONE')
 
-#CHAPTER 9 DICTIONARIES
+# ===============CHAPTER 9 DICTIONARIES=========================
 # counts = dict()
 # names = ['chev', 'chew', 'zgian', 'chew', 'chev', 'chew']
 # for name in names :
@@ -182,6 +182,8 @@
 # print(counts)
 
 # name = input('Enter a text file:')
+# if len(name) < 1:
+#    name = "romeo.txt"
 # handle = open(name)
 #
 # counts = dict()
@@ -189,6 +191,7 @@
 #     words = lines.split()
 #     for word in words :
 #         counts[word] = counts.get(word, 0) + 1
+# # --------SAME AS------= counts[word] + 1 --AND-- += 1
 #
 # bigword = None
 # bigcount = None
@@ -198,6 +201,9 @@
 #         bigcount = count
 #
 # print(bigword, bigcount)
+# print(counts.items())
+# print(counts.keys())
+# print(counts.values())
 
 # ================CHAPTER 10 TUPLES=============
 # (k, v) = (4, 7)
@@ -223,8 +229,32 @@
 #
 # print(sorted ( [ ( i, k) for k, i in dictionary.items()], reverse=True))
 
+#-----TURN DICTIONARY TO TUPLE TO LIST------
+# stuff = {'candy': 3, 'cand' : -1, 'can' : 9}
+# x, y, z = stuff.items()
+# a = [x[1], y[1], z[1]]
+# a.sort(reverse=True)
+# print(a)
+#------------All different data types-------------
+# dict = {56.0 : 2}
+# byt = b'abc'
+# set = {56, 78}
+# list = ['edge', 23]
+# tup = ('tuples', 53, 'g14')
+# int = 864
+# flt = 12.6
+# dtatyp = [dict, byt, set, list, tup, int, flt]
+# for typ in dtatyp:
+#     try:
+#         if len(typ) == 1:
+#             print(typ, 'is a', type(typ), 'type data.')
+#         else :
+#             print(typ, 'is a', type(typ), 'type data set.')
+#     except:
+#         print(typ, 'is a', type(typ), 'type data.')
+
 # ================CHAPTER 11 REGULAR EXPRESSIONS================
-hand = open('sample_text.txt')
+#hand = open('sample_text.txt')
 # for lines in hand :
 #     if '@' in lines :
 #         words = lines.split()
@@ -272,6 +302,7 @@ hand = open('sample_text.txt')
 #     if len(data) < 1:
 #         break
 #     print(data.decode(),end='')
+#     print(len(data))
 # mysock.close()
 
 #==============URLIB LIBRARY==============
