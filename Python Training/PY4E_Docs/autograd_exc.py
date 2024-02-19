@@ -177,19 +177,68 @@ import re
 #
 # mysock.close()
 #==========================================================
-from urllib.request import urlopen
-#import urllib.request
-#from bs4
-import BeautifulSoup
+# from urllib.request import urlopen
+# #import urllib.request
+# from bs4 import BeautifulSoup
+#
+# # Ignore SSL certificate errors
+# import ssl
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+#
+# url = "http://py4e-data.dr-chuck.net/comments_1974911.html"
+# html = urlopen(url, context=ctx).read()
+# #html = urllib.request.urlopen(url).read()
+# soup = BeautifulSoup(html, "html.parser")
+#
+# nbrs = 0
+# for tag in soup('span'):
+#     nbrs += int(tag.contents[0])
+# print(nbrs)
+#============================================================
+
+# import  urllib.request, urllib.error, urllib.parse
+# from bs4 import BeautifulSoup
+# import ssl
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+#
+# url = input('Enter URL: ')
+# if len(url) < 1:
+#     url = 'http://py4e-data.dr-chuck.net/known_by_Feden.html'
+# cnt = input('Enter Count: ')
+# pos = input('Enter Position: ')
+# for x in range(int(cnt)) :
+#     html = urllib.request.urlopen(url, context=ctx).read()
+#     data = BeautifulSoup(html, 'html.parser')
+#     tag = data('a')[int(pos) - 1]
+#     url = tag.get('href', None)
+#     print(tag)
+# print(tag)
+#===========================================================
+
+import  urllib.request, urllib.error, urllib.parse
 import ssl
+import xml.etree.ElementTree as ET
 
-url = "http://py4e-data.dr-chuck.net/comments_1974911.html"
-html = urlopen(url).read()
-#html = urllib.request.urlopen(url).read()
-soup = BeautifulSoup(html, "html.parser")
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
 
-nbrs = 0
-for tag in soup('span'):
-    nbrs += int(tag.contents[0])
-print(nbrs)
+url = input('Enter location: ')
+if len(url) < 1 :
+    url = "http://py4e-data.dr-chuck.net/comments_1974913.xml"
+print('Retreiving:', url)
+urlread = urllib.request.urlopen(url, context=ctx).read()
+print('Retreived', len(urlread), 'characters.')
+xmldata = ET.fromstring(urlread)
+count = xmldata.findall('comments/comment')
+cnt = 0
+for item in count :
+    cnt += int(item.find('count').text)
+print('Count:', len(count))
+print(cnt)
+#===============================================================
 
