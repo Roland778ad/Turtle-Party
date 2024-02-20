@@ -219,26 +219,76 @@ import re
 # print(tag)
 #===========================================================
 
-import  urllib.request, urllib.error, urllib.parse
-import ssl
-import xml.etree.ElementTree as ET
-
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
-
-url = input('Enter location: ')
-if len(url) < 1 :
-    url = "http://py4e-data.dr-chuck.net/comments_1974913.xml"
-print('Retreiving:', url)
-urlread = urllib.request.urlopen(url, context=ctx).read()
-print('Retreived', len(urlread), 'characters.')
-xmldata = ET.fromstring(urlread)
-count = xmldata.findall('comments/comment')
-cnt = 0
-for item in count :
-    cnt += int(item.find('count').text)
-print('Count:', len(count))
-print(cnt)
+# import  urllib.request, urllib.error, urllib.parse
+# import ssl
+# import xml.etree.ElementTree as ET
+#
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+#
+# url = input('Enter location: ')
+# if len(url) < 1 :
+#     url = "http://py4e-data.dr-chuck.net/comments_1974913.xml"
+# print('Retreiving:', url)
+# urlread = urllib.request.urlopen(url, context=ctx).read()
+# print('Retreived', len(urlread), 'characters.')
+# xmldata = ET.fromstring(urlread)
+# count = xmldata.findall('comments/comment')
+# cnt = 0
+# for item in count :
+#     cnt += int(item.find('count').text)
+# print('Count:', len(count))
+# print(cnt)
 #===============================================================
 
+# import  urllib.request, urllib.error, urllib.parse
+# import ssl
+# import json
+#
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+#
+# url = input('Enter location: ')
+# if len(url) < 1 :
+#     url = "http://py4e-data.dr-chuck.net/comments_1974914.json "
+# print('Retreiving:', url)
+# urlread = urllib.request.urlopen(url, context=ctx).read()
+# print('Retreived', len(urlread), 'characters.')
+# xmldata = json.loads(urlread)
+# cnt = 0
+# for count in xmldata['comments'] :
+#     cnt += count['count']
+# print(cnt)
+#======================================================================
+#
+# import urllib.request, urllib.parse
+# import json
+# import ssl
+#
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+#
+# serviceurl = 'http://py4e-data.dr-chuck.net/opengeo?'
+# parms = dict()
+# while True :
+#     address = input('Enter location: ')
+#     if not address or address == 'done' :
+#         break
+#     parms['q'] = address.strip()
+#     url = serviceurl + urllib.parse.urlencode(parms)
+#     print('Retreiving:', url)
+#     uh = urllib.request.urlopen(url, context=ctx).read()
+#     print('Retreived', len(uh), 'characters')
+#     jsn = json.loads(uh)
+#     print('Plus code:', jsn['features'][0]['properties']['plus_code'])
+#=====================================================
+
+def func(x):
+    print(x)
+
+
+func(10)
+func(20)

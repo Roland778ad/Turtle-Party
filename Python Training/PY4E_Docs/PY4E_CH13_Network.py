@@ -102,21 +102,23 @@ class PartyAnimal:
     def __del__(self):
         print('Object', self.attr_name, 'Closed')
 
-class FootballFan(PartyAnimal):
-    attr_points = 0
-    def method2(self):
-        self.attr_points = self.attr_points + 7
-        #self.method1()
-        print(self.attr_name, 'points', self.attr_points)
-
-
-s = PartyAnimal('Sally')
-j = FootballFan('Jim')
-s.method1()
-j.method2()
-
-s.method1()
-FootballFan('Roland').method1()
-FootballFan('Roland').method2()
-j.method2()
-j.method1
+#--------Class Inheritance----------------
+# class FootballFan(PartyAnimal):
+#     attr_points = 0
+#     def method2(self):
+#         self.attr_points = self.attr_points + 7
+#         #self.method1()
+#         print(self.attr_name, 'points', self.attr_points)
+#
+#
+# s = PartyAnimal('Sally')
+# j = FootballFan('Jim')
+# s.method1()
+# j.method2()
+#
+# s.method1()
+# FootballFan('Roland').method1()
+# FootballFan('Roland').method2()
+# j.method2()
+# j.method1
+# print('dir', dir(j))
