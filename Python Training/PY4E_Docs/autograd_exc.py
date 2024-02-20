@@ -286,9 +286,126 @@ import re
 #     print('Plus code:', jsn['features'][0]['properties']['plus_code'])
 #=====================================================
 
-def func(x):
-    print(x)
+# import sqlite3
+#
+# conn = sqlite3.connect('PY4E_CH15autograd.sqlite')
+# cur = conn.cursor()
+#
+# cur.execute('DROP TABLE IF EXISTS Counts')
+#
+# cur.execute('CREATE TABLE Counts (org TEXT, count INTEGER)')
+#
+# fname = input('Enter file name: ')
+# if (len(fname) < 1): fname = 'mbox.txt'
+# fh = open(fname)
+# for line in fh:
+#     if not line.startswith('From:'): continue
+#     pieces = line.split()
+#     email = pieces[1]
+#     org = email.split('@')[1]
+#     cur.execute('SELECT count FROM Counts WHERE org = ? ', (org,))
+#     row = cur.fetchone()
+#     if row is None:
+#         cur.execute('''INSERT INTO Counts (org, count)
+#                 VALUES (?, 1)''', (org,))
+#     else:
+#         cur.execute('UPDATE Counts SET count = count + 1 WHERE org = ?',
+#                     (org,))
+# conn.commit()
+#
+# sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC'
+#
+# for row in cur.execute(sqlstr):
+#     print(str(row[1]), row[0])
+#
+# cur.close()
+#=========================================================
+#
+# import sqlite3
+#
+# conn = sqlite3.connect('PY4E_CH15agrad2.sqlite')
+# cur = conn.cursor()
+#
+# cur.executescript('''
+# DROP TABLE IF EXISTS Artist;
+# DROP TABLE IF EXISTS Album;
+# DROP TABLE IF EXISTS Genre;
+# DROP TABLE IF EXISTS Track;
+#
+# CREATE TABLE Artist (
+#     id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#     name    TEXT UNIQUE
+# );
+#
+# CREATE TABLE Genre (
+#     id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#     name    TEXT UNIQUE
+# );
+#
+# CREATE TABLE Album (
+#     id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#     artist_id  INTEGER,
+#     title   TEXT UNIQUE
+# );
+#
+# CREATE TABLE Track (
+#     id  INTEGER NOT NULL PRIMARY KEY
+#         AUTOINCREMENT UNIQUE,
+#     title TEXT  UNIQUE,
+#     album_id  INTEGER,
+#     genre_id  INTEGER,
+#     len INTEGER, rating INTEGER, count INTEGER
+# );''')
+#
+# handle = open('tracks CH15/tracks/tracks.csv')
+#
+# # Beauty School Dropout,Various,Grease,48,100,239960,Soundtrack
+# #   0                      1       2    3  4    5       6
+#
+# for line in handle:
+#     line = line.strip();
+#     pieces = line.split(',')
+#     if len(pieces) < 5 : continue
+#
+#     name = pieces[0]
+#     artist = pieces[1]
+#     album = pieces[2]
+#     count = pieces[3]
+#     rating = pieces[4]
+#     length = pieces[5]
+#     genre = pieces[6]
+#
+#     # print(name, artist, album, count, rating, length, genre)
+#
+#     cur.execute('''INSERT OR IGNORE INTO Artist (name)
+#         VALUES ( ? )''', ( artist, ) )
+#     cur.execute('SELECT id FROM Artist WHERE name = ? ', (artist, ))
+#     artist_id = cur.fetchone()[0]
+#
+#     cur.execute('''INSERT OR IGNORE INTO Album (title, artist_id)
+#         VALUES ( ?, ? )''', ( album, artist_id ) )
+#     cur.execute('SELECT id FROM Album WHERE title = ? ', (album, ))
+#     album_id = cur.fetchone()[0]
+#
+#     cur.execute('''INSERT OR IGNORE INTO Genre (name)
+#         VALUES ( ? )''', (genre, ))
+#     cur.execute('SELECT ID FROM Genre WHERE name = ? ', (genre, ))
+#     genre_id = cur.fetchone()[0]
+#
+#     cur.execute('''INSERT OR REPLACE INTO Track
+#         (title, album_id, len, rating, count, genre_id)
+#         VALUES ( ?, ?, ?, ?, ?, ? )''',
+#         ( name, album_id, length, rating, count, genre_id ) )
+#     cur.execute('SELECT * FROM Track ORDER BY title')
+#
+# conn.commit()
+#
+# cur.execute('''
+#     SELECT Track.title, Artist.name, Album.title, Genre.name
+#     FROM Track JOIN Genre JOIN Album JOIN Artist
+#     ON Track.genre_id = Genre.ID and Track.album_id = Album.id
+#         AND Album.artist_id = Artist.id
+#     ORDER BY Artist.name LIMIT 3
+#             ''')
+# ================================================================
 
-
-func(10)
-func(20)
