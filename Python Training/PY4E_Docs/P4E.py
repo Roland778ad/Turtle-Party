@@ -2,10 +2,6 @@
 # by Roland Udvari
 # 1-30-2024
 
-# INPUT usage
-nam = input("Hi, what is your name?")
-print("Hello", nam)
-byear = input("What year were you born in?")
-age = 2024 - int(byear)
-print("You are/will turn", age, "years old this year.")
-
+# For those with a literal sense for instructions.
+print("one line other than 'hello world'")
+print("\U0001F44D")
