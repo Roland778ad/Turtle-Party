@@ -1,3 +1,7 @@
+# PY4E CHAPTER 15 SQL
+# Made by Roland Udvari
+# 2024-02-22
+
 import sqlite3
 
 conn = sqlite3.connect('emaildb.sqlite')

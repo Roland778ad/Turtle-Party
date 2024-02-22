@@ -1,5 +1,5 @@
-# PY4E Document
-#CHAPTER 13 XML JSON
+
+# CHAPTER 13 XML JSON
 #By Roland Udvari 2024-02-07
 
 # ============JSON API DATA READ===========
