@@ -10,33 +10,36 @@
 
 # 1
 # Data is the dataset, sec is the amount of time a datapoint has to be the peak compares to its neighbors
-def peak_filter(data, sec):
+def get_only_peaks(data, w):
     peak_list = []
     for peaks in range(len(data)):
-        if peaks < sec or peaks + sec >= len(data):
+        if peaks < w or peaks + w >= len(data):
             continue
-        if max(data[peaks - sec : peaks]) < data[peaks] and max(data[peaks+1 : peaks + sec +1]) <= data[peaks]:
+        if max(data[peaks - w : peaks]) < data[peaks] and max(data[peaks + 1 : peaks + w + 1]) <= data[peaks]:
             peak_list.append(data[peaks])
     return peak_list
 # 2
 # n is the length of the moving section
 # Should need annotation for NO negative and/or decimal input numbers.
-def moving_average(movdata, n):
+def find_moving_average(data, n):
     mov_avg_lst = []
-    for span in range(len(movdata)):
-        if span + n > len(movdata):
+    for span in range(len(data)):
+        if span + n > len(data):
             continue
-        avg = sum(movdata[span : span + n]) / len(movdata[span : span + n])
-        print(movdata[span : span + n], avg)
+        avg = sum(data[span: span + n]) / len(data[span: span + n])
+        print(data[span: span + n], avg)
         mov_avg_lst.append(avg)
     return mov_avg_lst
 
 # 3
-def peak_mov_avg(data, peak_sec, avg_sec):
-    peak_data = peak_filter(data, peak_sec)
-    return moving_average(peak_data, avg_sec)
+def moving_average_of_peaks(data, n, w):
+    peak_data = get_only_peaks(data, n)
+    return find_moving_average(peak_data, w)
 
 data = [149, 151, 155, 150, 153, 152, 155, 155, 155, 154, 165, 164, 175, 172, 168]
 sec = 2
 movsec = 2
-print(peak_mov_avg(data, sec, movsec))
+# print(moving_average_of_peaks(data, sec, movsec))
+print(get_only_peaks([100, 105, 110, 115, 120, 115, 110, 120, 125, 120, 125, 120, 130, 135, 140, 135, 130], 2))
+print(find_moving_average([120, 125, 140], 2))
+moving_average_of_peaks([100, 105, 110, 115, 120, 115, 110, 120, 125, 120, 125, 120, 130, 135, 140, 135, 130], 2,1)

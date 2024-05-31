@@ -25,7 +25,7 @@ def time_in_zone(data, low, high):
 def peak_heartrate(data):
     peak_count = 0
     for x in range(len(data)):
-        if is_peak_at(x, w) is True:
+        if is_peak_at(data, x, w) is True:
             peak_count += 1
             pass
         pass
@@ -37,11 +37,11 @@ def peak_heartrate(data):
 # data[i] is larger than w points to its left
 # data[i] is larger than w points to its right
 
-def is_peak_at(sec, w):
-    if sec < w or sec >= len(data)-w:
+def is_peak_at(data, index, w):
+    if index < w or index >= len(data)-w:
         return False
     for x in range(1, w + 1):
-        if data[sec] > data[sec - x] and data[sec] >= data[sec + x]:
+        if data[index] > data[index - x] and data[index] >= data[index + x]:
             continue
         else:
             return False
@@ -51,4 +51,4 @@ data = [149, 151, 155, 150, 153, 152, 155, 155, 155, 154, 165, 164, 175, 172, 16
 w = 2
 print(time_in_zone(data, 150, 165))
 print(peak_heartrate(data))
-print(is_peak_at(6, 3))
+print(is_peak_at(data, 6, 3))

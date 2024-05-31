@@ -3,20 +3,20 @@
 # by Roland Udvari
 # 2023-03-6
 
-def maxSeq(list):
+def maxSeq(data):
     num = None
     curseq = 0
     maxseq = 0
-    for x in range(len(list)):
-        if num is None or list[x] > num :
+    for x in range(len(data)):
+        if num is None or data[x] > num :
             curseq += 1
         else:
             curseq = 1
         if maxseq < curseq:
             maxseq = curseq
-        num = list[x]
+        num = data[x]
         pass
     return maxseq
 
-list = [0, 1, 2, 3, 1, 2, 3]
-print(maxSeq(list))
+data = [-1, 2, 5, 7, 1, 2, 3]
+print(maxSeq(data))
